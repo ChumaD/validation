@@ -1,0 +1,41 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300"  src="../assets/image/validate.jpg">
+</div>
+<h2>ENTER YOUR CRIDENTIALS</h2>
+
+<div>
+    <form [formGroup]="validateform">
+         <p class="lst" *ngIf="!validateform.valid">*Required  </p> 
+
+        EmailAdress:<br>
+          <input formControlName="email" type="email" [(ngModel)] = "email" required>
+          <br>
+
+         <!----p class="lst" *ngIf="!validateform.valid">*Required</p--> 
+
+        Password:<br>
+          <input type="password" formControlName="password" [(ngModel)] = "password" required>
+          <br>
+
+        <!----p class="lst" *ngIf="!validateform.valid">*Required</p!--> 
+
+        Confirm Password:<br>
+          <input type="password" formControlName="confirmpass" [(ngModel)] = "confirmpass" required>
+           <br>
+        
+          <button [disabled]="!validateform.valid" (click) = "submit()" >Save</button><br>
+        </form>
+</div>
+
+<p *ngFor="let pass of ValidPas">
+  {{pass.email}}<br>
+  {{pass.password}}<br>
+  {{pass.confirmpass}}<br>
+
+</p>
+
+<router-outlet></router-outlet>
